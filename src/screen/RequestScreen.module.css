@@ -1,0 +1,68 @@
+.mainBox{
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+
+.requestBox{
+    width: 100%;
+    /* border: 2px solid brown; */
+    min-height: 100vh;
+    padding: 5px;
+
+}
+
+.requestBox h3{
+    text-align: center;
+    margin: 10px 0;
+}
+.heading{
+    width: 100%;
+    border-bottom:1px solid black ;
+}
+
+
+.listBox{
+    width: 100%;
+
+}
+
+.listBox table{
+    width: 100%;
+}
+
+.listBox table tr{
+    width: 100%;
+}
+.listBox table td{
+    padding: 4px;
+    text-align: center;
+}
+
+.listBox table th{
+        background-color: lightgray;
+        text-align: center;
+        padding: 2px;
+}
+.listBox table td button{
+    width: 80px;
+    font-size: small;
+    border: none;
+    background-color:#89C343 ;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.modalBox{
+    min-width: 85%;
+}
+.modalRow table{
+    width: 100%;
+}
+.modalRow tr{
+    width: 100%;
+
+}
+.modalRow td{
+    padding: 5px;
+}

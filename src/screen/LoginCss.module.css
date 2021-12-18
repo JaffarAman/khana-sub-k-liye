@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginBox{
+    width: 100%;
+    /* border: 2px solid red; */
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.LoginPic{
+    /* border: 1px solid lime; */
+    width: 300px;
+    flex-shrink: 0;
+
+
+}
+
+.loginForm{
+    /* border: 1px solid red; */
+    width: 400px;
+    padding: 8px;
+}
+.forgetDiv{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0 10px auto;
+    color: #09DEEA;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+.notAcc{
+    /* color: #09DEEA; */
+    font-weight: bold;
+}
+@media only screen and (max-width:704px){
+    .loginBox{
+            align-items: stretch;
+            /* border: 1px solid lime; */
+}
+    .LoginPic{
+        margin: 20px 0 10px 0;
+        max-width: 300px;
+    }
+}
+
+
+.mainLoginBox{
+    width: 100%;
+    min-height: 100vh;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.adminLoginBox{
+    width: 50%;
+    /* border: 1px solid blue; */
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.adminLoginimg{
+    width: 40%;
+}
+.adminLoginForm{
+    width: 60%;
+    /* border: 1px solid red; */
+}
+
+.adminLoginForm div
+{
+    width: 100%;
+
+}
+.adminLoginForm h1{
+    text-align: center;
+}
+
+.adminLoginForm input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;   
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    outline: none; 
+}
+.adminLoginForm button{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    padding: 5px;
+    background-color: #89C343;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: all 0.6s ease;
+    }
+.adminLoginForm button:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
