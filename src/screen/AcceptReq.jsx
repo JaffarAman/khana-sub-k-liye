@@ -29,6 +29,7 @@ const AcceptReq = () => {
         dob: doc.data().dob,
         nnoOffamily: doc.data().familymem,
         status: doc.data().status,
+        income: doc.data().income,
         key: doc.id,
       });
     });
@@ -144,7 +145,7 @@ const AcceptReq = () => {
                   <td>
                     {requestArr &&
                       requestArr[ind] &&
-                      requestArr[ind].formSerialNum}
+                      requestArr[ind].fatherName}
                   </td>
                 </tr>
                 <tr>
@@ -173,7 +174,10 @@ const AcceptReq = () => {
                 </tr>
                 <tr>
                   <td>monthly income: </td>
-                  <td>8000</td>
+                  <td>
+                    {" "}
+                    {requestArr && requestArr[ind] && requestArr[ind].income}
+                  </td>
                 </tr>
               </table>
             </div>

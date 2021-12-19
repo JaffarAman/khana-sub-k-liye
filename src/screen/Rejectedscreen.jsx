@@ -29,6 +29,7 @@ const RejectedReq = () => {
         dob: doc.data().dob,
         nnoOffamily: doc.data().familymem,
         status: doc.data().status,
+        income: doc.data().income,
         key: doc.id,
       });
     });
@@ -152,7 +153,9 @@ const RejectedReq = () => {
                 </tr>
                 <tr>
                   <td>monthly income: </td>
-                  <td>8000</td>
+                  <td>
+                    {requestArr && requestArr[ind] && requestArr[ind].income}
+                  </td>
                 </tr>
               </table>
             </div>
