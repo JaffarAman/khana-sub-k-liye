@@ -11,10 +11,10 @@ const RejectedReq = () => {
   const [requestArr, setrequestArr] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [loading , setLoading] = useState(true)
-  const [ind , setInd] = useState(null)
-  const [ref , setref] = useState(false)
-   
+  const [loading, setLoading] = useState(true);
+  const [ind, setInd] = useState(null);
+  const [ref, setref] = useState(false);
+
   useEffect(async () => {
     const dbRef = collection(db, "requestForm");
     const todoData = await getDocs(dbRef);
@@ -27,12 +27,12 @@ const RejectedReq = () => {
         fatherName: doc.data().fatherName,
         cnicNum: doc.data().cnic,
         dob: doc.data().dob,
-        nnoOffamily: doc.data().fmember,
+        nnoOffamily: doc.data().familymem,
         status: doc.data().status,
         key: doc.id,
       });
     });
-    setLoading(false)
+    setLoading(false);
     // console.log("todoArr" , todo)
     setrequestArr([...requestArr, ...todo]);
   }, [ref]);
@@ -45,57 +45,52 @@ const RejectedReq = () => {
 
       <section className={styles.requestBox}>
         <div className={styles.heading}>
-          <h3>Rejected   Request</h3>
+          <h3>Rejected Request</h3>
         </div>
 
-
-        {loading ?  
-            <section className="text-center">
-
-        <section class="spinner-border text-primary mt-5" role="status">
-                <span class="sr-only" >Loading...</span>
-              </section> 
+        {loading ? (
+          <section className="text-center">
+            <section class="spinner-border text-primary mt-5" role="status">
+              <span class="sr-only">Loading...</span>
             </section>
-              :
-        <div className={styles.listBox}>
-          <table border="1px">
-            <tr>
-              <th>S.No</th>
-              <th>Name</th>
-              <th>Cnic</th>
-              <th>Family Member</th>
+          </section>
+        ) : (
+          <div className={styles.listBox}>
+            <table border="1px">
+              <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Cnic</th>
+                <th>Family Member</th>
 
-              <th>View Details</th>
-            </tr>
-            {requestArr.map((val, ind) => {
-                return (
-                  val.status == "rejected" ?
-                <>
-                  <tr key={ind}>
-                    <td>{val.formSerialNum}</td>
-                    <td>{val.name}</td>
-                    <td>{val.cnicNum}</td>
-                    <td>{val.nnoOffamily}</td>
-                    
-                    <td>
-                      <button
-                        onClick={() => {
-                          setShow(true);
-                          setInd(ind)   
-                        }}
-                      >
-                        View Details
-                      </button>
-                    </td>
-                  </tr>
-                </>
-                : null
-              ) 
-            })}
-          </table>
-        </div>
-              }
+                <th>View Details</th>
+              </tr>
+              {requestArr.map((val, ind) => {
+                return val.status == "rejected" ? (
+                  <>
+                    <tr key={ind}>
+                      <td>{val.formSerialNum}</td>
+                      <td>{val.name}</td>
+                      <td>{val.cnicNum}</td>
+                      <td>{val.nnoOffamily}</td>
 
+                      <td>
+                        <button
+                          onClick={() => {
+                            setShow(true);
+                            setInd(ind);
+                          }}
+                        >
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                  </>
+                ) : null;
+              })}
+            </table>
+          </div>
+        )}
       </section>
 
       <Modal show={show} dialogClassName={styles.modalBox} onHide={handleClose}>
@@ -111,27 +106,45 @@ const RejectedReq = () => {
               <table border="1px">
                 <tr>
                   <td>Serial Num: </td>
-                  <td>{requestArr && requestArr[ind]&& requestArr[ind].formSerialNum}</td>
+                  <td>
+                    {requestArr &&
+                      requestArr[ind] &&
+                      requestArr[ind].formSerialNum}
+                  </td>
                 </tr>
                 <tr>
                   <td>Name: </td>
-                  <td>{ requestArr && requestArr[ind] && requestArr[ind].name}</td>
+                  <td>
+                    {requestArr && requestArr[ind] && requestArr[ind].name}
+                  </td>
                 </tr>
                 <tr>
                   <td>fatherName: </td>
-                  <td>{ requestArr && requestArr[ind] && requestArr[ind].formSerialNum}</td>
+                  <td>
+                    {requestArr &&
+                      requestArr[ind] &&
+                      requestArr[ind].formSerialNum}
+                  </td>
                 </tr>
                 <tr>
                   <td>CNIC number: </td>
-                  <td>{ requestArr && requestArr[ind] && requestArr[ind].cnicNum}</td>
+                  <td>
+                    {requestArr && requestArr[ind] && requestArr[ind].cnicNum}
+                  </td>
                 </tr>
                 <tr>
                   <td> Date of Birth: </td>
-                  <td>{ requestArr && requestArr[ind] && requestArr[ind].dob}</td>
+                  <td>
+                    {requestArr && requestArr[ind] && requestArr[ind].dob}
+                  </td>
                 </tr>
                 <tr>
                   <td>family members: </td>
-                  <td>{ requestArr && requestArr[ind] && requestArr[ind].nnoOffamily}</td>
+                  <td>
+                    {requestArr &&
+                      requestArr[ind] &&
+                      requestArr[ind].nnoOffamily}
+                  </td>
                 </tr>
                 <tr>
                   <td>help category: </td>
@@ -149,7 +162,6 @@ const RejectedReq = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-        
         </Modal.Footer>
       </Modal>
     </div>
